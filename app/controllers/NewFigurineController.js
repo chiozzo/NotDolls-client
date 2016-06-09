@@ -3,11 +3,13 @@
 NotDolls.controller('NewFigurineController', [
 	'$http',
 	'$scope',
-	function ($http, $scope) {
-		$scope.figurine = {
-			geekId: 3
-		};
+	'AuthFactory',
+	function ($http, $scope, authFactory) {
+
+		$scope.figurine = {};
+
 		$scope.createFigurine = function () {
+			$scope.figurine.geekId = authFactory.getUser().GeekId;
 			$scope.figurine.createdDate = new Date();
 			$http({
 				url:'http://localhost:5000/api/Inventory',
