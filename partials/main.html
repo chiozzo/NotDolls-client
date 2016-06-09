@@ -1,5 +1,5 @@
 <div ng-repeat="toy in figurines">
   <div>
-    {{toy.Name}}
+    {{toy.Name}} <button type="button" name="deleteButton" ng-click="deleteFigurine(toy.InventoryId)">Delete</button>
   </div>
 </div>
